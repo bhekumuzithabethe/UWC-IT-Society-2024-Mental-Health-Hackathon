@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ikamva Therapy  | {% block page_title %}{% endblock page_title %}</title>
+    <link rel="icon" type="image/x-icon" href="{% static "img/uwclogo.png" %}">
+
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet" >
+    <link rel="stylesheet" href="{% static "css/styles.css" %}">
+    <link rel="stylesheet" href="{% static "css/todo.css" %}">
+    <link rel="stylesheet" href="{% static "css/chatbot.css" %}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg bg-primary fixed-top" id="navbar" data-bs-theme="dark">
+        <!--Offcanvas toggler-->
+
+        <button class="navbar-toggler ms-2  menu text-light" onclick="toogleSidebar()"><i class="fa-regular fa-id-bars fa-lg"></i></button>
+        <div class="logo d-flex ms-3">
+          <img src="{% static "img/uwclogo.png" %}" alt="logo not found" width="50" height="50">
+          <a class="navbar-brand" href="{% url 'home' %}"> Student Aid</a>
+
+        </div>
+        <ul class="navbar-nav ms-auto "id="right-navbar">
+            
+          <li>
+            <form class="d-flex">
+              <input class="form-control me-sm-2" type="search" placeholder="Search">
+            </form>
+          </li>
+          
+          <li class="nav-item dropdown mt-3 me-3">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa-solid fa-user fa-lg"></i></a>
+            <div class="dropdown-menu dropdown-menu-end me-2">
+              <a class="dropdown-item" href="#"><i class="fa-regular fa-id-badge fa-md me-1"></i>Profile</a>
+              
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{% url "dologout" %}"><i class="fa-solid fa-arrow-right-from-bracket fa-md me-1"></i>Logout</a>
+            </div>
+          </li>
+        </ul>
+        
+    </nav>
+    <!--End Navbar-->
+
+    <aside id="sidebar">
+        {% include "sidebar.html" %}
+    </aside>
+
+    <main>
+        <h1 class="text-dark main_content_title p-1">{% block main_content_title %}{% endblock main_content_title %}</h1><hr class="m-2">
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+    <footer>
+        <span>&copy; Copyright 2024 Ikamva Therapy | All rights reserved.</span>
+    </footer>
+
+    <script src="{% static "js/script.js" %}"></script>
+    <script src="{% static "js/bootstrap.bundle.min.js" %}"></script>
+
+  </body>
+</html>

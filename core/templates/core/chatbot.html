@@ -1,0 +1,41 @@
+{% extends "index.html" %}
+{% block page_title %}Therapy{% endblock page_title %}
+{% block main_content_title %}Therapy{% endblock main_content_title %}
+
+
+{% block content %}
+<div class="chat-container">
+  <div class="card flex-grow-1">
+    
+    <div class="card-body messages-box">
+      
+      <ul class="list-unstyled messages-list" id="messagesList">
+        <li >
+          <div class="message-text">
+            <div class="message-sender">
+              <b>Virtual Therapist</b>
+            </div>
+            <div class="message-content">
+              Hi, I am your Virtual Therapist. How are you feeling today?
+            </div>
+          </div>
+        </li> 
+
+        
+      </ul>
+      
+    </div>
+   
+  </div>
+  <form class="message-form">
+    {%csrf_token%}
+    <div class="input-group">
+
+      <input type="text" class="form-control message-input" placeholder="Type your message...">
+      <div class="input-group-append">
+        <button type="submit" class="btn btn-primary btn-send ">Send</button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

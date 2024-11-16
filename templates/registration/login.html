@@ -1,0 +1,52 @@
+{% extends "registration/index.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block page_title %}Login{% endblock page_title %}
+
+{% block body %}
+
+<div class="row justify-content-center m-5">
+    <div class="col-4">
+        <div class="d-flex">
+            <img src="{% static "img/uwclogo.png" %}" alt="logo not found" width="50" height="50">
+            <h2 class="text-center text-dark">
+                Sign In ~ <span class="text-muted">Ikamva Student Aid</span>
+            </h2>
+        
+        </div>
+        <div class="card border-dark m-3">
+            <div class="card-header text-center"><i class="fa-solid fa-right-to-bracket fa-lg"></i> Sign In</div>
+            <div class="card-body">
+                <form action="{% url "dologin" %}" method="POST">
+                    {% csrf_token %}
+                    {{form|crispy}}
+                    {% for message in messages %}
+                        {% if message.tags == 'error' %}
+                            <h5 class="text-danger m-4">{{message}}</h5>
+                        {% endif %}
+                    {% endfor %}
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-lg btn-primary" type="submit"><i class="fa-solid fa-right-to-bracket fa-lg"></i> Sign In </button>
+                    </div>
+                    <div class="text-dark m-4 text-center">
+                        <a href="{% url "password_reset" %}">Fogort Password?</a><br>
+                        Don't have account? Register <a href="{% url "create-user-account" %}">Here</a>
+                    </div>
+                </form>
+                
+            </div>
+            
+        </div>
+        <div class="col-6 d-flex ms-5" >
+            <a class="btn btn-primary text-light m-2" href="https://www.uwc.ac.za/campus-life/sds-departments/centre-for-student-support-services">UWC CSSS</a>
+            <a class="btn btn-primary text-light m-2" href="https://www.uwc.ac.za/news-and-announcements/announcements/mental-health-support-for-students">UWC Support</a>
+            <a class="btn btn-primary text-light m-2" href="https://www.uwc.ac.za/news-and-announcements/news/uwcs-commitment-to-mental-health-a-transformative-journey">UWC Commitment</a>
+        
+        </div>
+        <footer class="ms-3">
+            &copy;Copyright 2024 Ikamva Therapy| All rights reserved.
+        </footer>
+    </div>
+   
+</div>
+{% endblock body %}

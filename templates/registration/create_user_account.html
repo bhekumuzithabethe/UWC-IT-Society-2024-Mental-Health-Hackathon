@@ -1,0 +1,35 @@
+{% extends "registration/index.html" %}
+{% load crispy_forms_tags %}
+{% block page_title %}User Registration{% endblock page_title %}
+
+{% block body %}
+
+<div class="row justify-content-center m-2">
+  <div class="col-8">
+    <h2><i class="fa-solid fa-address-card fa-lg "></i> Create User Account</h2><hr>
+  </div>
+</div>
+      
+<div class="row justify-content-center">
+    <div class="col-8 ">
+        <div class="card bg-light">
+            <div class="card-header"><i class="fa-solid fa-address-card fa-lg"></i> Create User Account</div>
+
+            <div class="card-body">
+              <form action="{% url 'create-user-account' %}" method="POST">
+                {% csrf_token %}
+                {{form|crispy}}
+                <button type="submit" class="btn btn-primary"><i class="fa-regular fa-floppy-disk fa-lg"></i> Create Account</button>
+                <a href="{% url "dologin" %}" class="btn btn-primary"><i class="fa-solid fa-xmark fa-lg"></i> Cancel</a>
+              </form>
+              {% for message in messages %}
+                    {% if message.tags == 'error' %}
+                        <h5 class="text-danger m-4">{{message}}</h5>
+                    {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+    </div>
+</div>
+
+{% endblock body %}

@@ -1,0 +1,91 @@
+#todo{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    display: flexbox;
+    color: white;
+    background: black;
+}
+
+.container {
+    background: var(--blue); 
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    padding: 30px;
+    border-radius: 16px;
+    backdrop-filter: blur(25px);
+    text-align: center;
+    width: 550px;
+    margin-bottom: 100px;
+      }
+    h2 {
+    font-size: 40px;
+    margin-bottom: -15px;
+    }
+
+
+    button {
+    width: 100%;
+    padding: 10px 0;
+    background: #2F9CF4;
+    border: none;
+    border-radius: 99px;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 15px;
+      }
+      label {
+        position: relative;
+        left: -180px;
+        margin: 10px 0;
+        box-sizing: border-box;
+        font-size: 20px;
+      }
+      input:focus {
+        outline: 3px solid rgba(255, 255, 255, 0.3);}
+
+      input {
+        margin: 20px 0;
+        position: relative;
+      }
+
+    input  {
+    width: 100%;
+    border: none;
+    padding: 12px 12px 12px 45px;
+    border-radius: 99px;
+    outline: 3px solid transparent;
+    transition: 0.3s;
+    font-size: 17px;
+    font-weight: 600;
+    overflow-y: scroll;
+    margin: 20px 0;
+    position: relative;
+      }
+
+   table {
+   width: 100% ;
+   border: none;
+   border-radius:2px ;
+   font-size: 16px;
+   font-weight: 600;
+   cursor: pointer;
+   transition: 0.3s;
+   margin-top: 20px;
+   
+      }
+      th,
+      td {
+        padding: 5px;
+        border: 1px solid #ddd;
+        text-align: center;
+      }
+     
+      button:hover {
+        background-color: #2F9CF4;
+      }
